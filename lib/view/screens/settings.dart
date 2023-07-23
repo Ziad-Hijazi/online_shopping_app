@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:online_shopping/core/constants/color.dart';
 import 'package:online_shopping/core/constants/image_asset.dart';
+import 'package:online_shopping/core/constants/routes.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../controller/settings_controller.dart';
 
@@ -44,14 +46,23 @@ class SettingsPage extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 ListTile(
-                  trailing: Switch(
-                    onChanged: (val) {},
-                    value: true,
-                  ),
-                  title: const Text("Disable Notification"),
+                  onTap: () {
+                    Get.toNamed(AppRoutes.pendingOrders);
+                  },
+                  trailing: const Icon(Icons.add_box_outlined),
+                  title: const Text("Orders"),
                 ),
                 ListTile(
-                  onTap: () {},
+                  onTap: () {
+                    Get.toNamed(AppRoutes.archiveOrders);
+                  },
+                  trailing: const Icon(Icons.archive),
+                  title: const Text("Archive"),
+                ),
+                ListTile(
+                  onTap: () {
+                    Get.toNamed(AppRoutes.viewAddress);
+                  },
                   trailing: const Icon(Icons.location_on_rounded),
                   title: const Text("Address"),
                 ),
@@ -61,7 +72,9 @@ class SettingsPage extends StatelessWidget {
                   title: const Text("About us"),
                 ),
                 ListTile(
-                  onTap: () {},
+                  onTap: () {
+                    launchUrl(Uri.parse("tel:+970595592532"));
+                  },
                   trailing: const Icon(Icons.phone),
                   title: const Text("Contact us"),
                 ),
@@ -70,7 +83,7 @@ class SettingsPage extends StatelessWidget {
                     controller.logout();
                   },
                   trailing: const Icon(Icons.exit_to_app_outlined),
-                  title: const Text("LogOut"),
+                  title: const Text("Logout"),
                 ),
               ],
             ),

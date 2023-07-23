@@ -5,6 +5,7 @@ import 'package:online_shopping/controller/items_controller.dart';
 import 'package:online_shopping/core/class/handling_data_view.dart';
 import 'package:online_shopping/core/constants/routes.dart';
 import 'package:online_shopping/data/model/items_model.dart';
+import 'package:online_shopping/view/screens/homePage.dart';
 import 'package:online_shopping/view/widgets/items/custom_list_items.dart';
 import 'package:online_shopping/view/widgets/items/list_categories_items.dart';
 
@@ -15,7 +16,7 @@ class ItemsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(ItemsControllerImp());
+    ItemsControllerImp controller = Get.put(ItemsControllerImp());
     FavoriteController controllerFav = Get.put(FavoriteController());
     return Scaffold(
       body: Container(
@@ -23,19 +24,29 @@ class ItemsScreen extends StatelessWidget {
         child: ListView(
           children: [
             CustomAppBarHome(
+                mycontroller: controller.search,
+                onChanged: (val) {
+                  controller.checkSearch(val);
+                },
                 onPressedFavorite: () {
                   Get.toNamed(AppRoutes.myFavorite);
                 },
                 title: "Find Product",
-                onPressedSearch: () {}),
+                onPressedSearch: () {
+                  controller.onSearchItems();
+                }),
             const SizedBox(
               height: 20,
             ),
             const ListCategoriesItems(),
             GetBuilder<ItemsControllerImp>(
-                builder: (controller) => HandlingDataView(
-                    statusRequest: controller.statusRequest,
-                    widget: GridView.builder(
+              builder: (controller) => HandlingDataView(
+                statusRequest: controller.statusRequest,
+                widget: controller.isSearch
+                    ? ListItemsSearch(
+                        listDataModel: controller.listData,
+                      )
+                    : GridView.builder(
                         shrinkWrap: true,
                         physics: const NeverScrollableScrollPhysics(),
                         itemCount: controller.data.length,
@@ -50,7 +61,10 @@ class ItemsScreen extends StatelessWidget {
                             active: true,
                             itemsModel: ItemsModel.fromJson(controller.data[i]),
                           );
-                        })))
+                        },
+                      ),
+              ),
+            )
           ],
         ),
       ),

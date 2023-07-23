@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:online_shopping/controller/cart_controller.dart';
 import 'package:online_shopping/core/class/handling_data_view.dart';
 import 'package:online_shopping/core/constants/image_asset.dart';
-import 'package:online_shopping/view/widgets/cart/app_bar_cart.dart';
 import 'package:online_shopping/view/widgets/cart/bottom_navigation_bar_cart.dart';
 import 'package:online_shopping/view/widgets/cart/top_card_cart.dart';
 
@@ -16,19 +15,26 @@ class Cart extends StatelessWidget {
   Widget build(BuildContext context) {
     CartController cartController = Get.put(CartController());
     return Scaffold(
+        appBar: AppBar(
+          title: const Text("My Cart"),
+        ),
         bottomNavigationBar: GetBuilder<CartController>(
           builder: (controller) => BottomNavigationBarCart(
+              couponController: controller.couponController!,
+              onPressedApplyCoupon: () {
+                controller.checkCoupon();
+              },
               price: "${cartController.priceOrders}",
-              shipping: "300.20",
-              totalPrice: "500.20"),
+              discount: "${controller.discountCoupon}",
+              shipping: "0",
+              totalPrice: "${controller.getTotalPrice()}"),
         ),
         body: GetBuilder<CartController>(
             builder: (controller) => HandlingDataView(
                   statusRequest: controller.statusRequest,
                   widget: ListView(
                     children: [
-                      AppBarCart(title: 'My Cart'),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       TopCardCart(
                           message:
                               "You Have ${cartController.totalcountitems} Items In Your List"),
@@ -55,7 +61,7 @@ class Cart extends StatelessWidget {
                                     "${cartController.data[index].itemsImage}",
                                 name: "${cartController.data[index].itemsName}",
                                 price:
-                                    "${cartController.data[index].itemsPrice}",
+                                    "${cartController.data[index].itemsprice}",
                                 count:
                                     "${cartController.data[index].countitems}",
                               ),

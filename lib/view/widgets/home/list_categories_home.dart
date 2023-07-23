@@ -52,7 +52,7 @@ class Categories extends GetView<HomePageControllerImp> {
               color: const Color(0xff2c3e50).withOpacity(0.5),
               borderRadius: BorderRadius.circular(15),
             ),
-            child: SvgPicture.network(
+            child: Image.network(
               "${AppLink.imagesCategories}/${categoriesModel.categoriesImage}",
               color: AppColor.primaryColor,
             ),

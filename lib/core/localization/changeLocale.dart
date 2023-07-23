@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:online_shopping/core/constants/app_theme.dart';
 import 'package:online_shopping/core/services/services.dart';
 
+import '../functions/fcmconfig.dart';
+
 class LocaleController extends GetxController {
   Locale? language;
   MyServices myServices = Get.find();
@@ -18,6 +20,8 @@ class LocaleController extends GetxController {
 
   @override
   void onInit() {
+    fcmconfig();
+    requestPermissionNotification();
     String? sharedPrefLang = myServices.sharedPreferences.getString("lang");
     if (sharedPrefLang == "ar") {
       language = const Locale("ar");

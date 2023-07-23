@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../core/constants/color.dart';
 
@@ -11,7 +12,7 @@ class CustomTitleHome extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.only(bottom: 15),
       child: Text(
-        title,
+        title.tr,
         style: const TextStyle(
             fontSize: 25,
             fontWeight: FontWeight.bold,

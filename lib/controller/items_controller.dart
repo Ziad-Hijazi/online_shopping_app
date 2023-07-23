@@ -1,6 +1,6 @@
-import 'dart:ffi';
-
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:online_shopping/controller/homepage_controller.dart';
 import 'package:online_shopping/core/class/status_request.dart';
 import 'package:online_shopping/core/functions/handlingData.dart';
 import 'package:online_shopping/core/services/services.dart';
@@ -15,7 +15,7 @@ abstract class ItemsController extends GetxController {
   goToItemsDetails(ItemsModel itemsModel);
 }
 
-class ItemsControllerImp extends ItemsController {
+class ItemsControllerImp extends SearchMixController {
   ItemsData itemsData = ItemsData(Get.find());
   List data = [];
   late StatusRequest statusRequest;
@@ -26,11 +26,11 @@ class ItemsControllerImp extends ItemsController {
 
   @override
   void onInit() {
+    search = TextEditingController();
     initialData();
     super.onInit();
   }
 
-  @override
   initialData() {
     categories = Get.arguments['categories'];
     selectedCat = Get.arguments['selectedcat'];
@@ -38,12 +38,11 @@ class ItemsControllerImp extends ItemsController {
     getItems(catId!);
   }
 
-  @override
   getItems(categoryId) async {
     data.clear();
     statusRequest = StatusRequest.loading;
     var response = await itemsData.getData(
-        categoryId, myServices.sharedPreferences.getInt("id").toString());
+        categoryId, myServices.sharedPreferences.getString("id")!);
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == "success") {

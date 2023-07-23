@@ -11,4 +11,12 @@ class AppImageAsset {
   static const String server = '$rootLottie/server.json';
   static const String noData = '$rootLottie/nodata.json';
   static const String offline = '$rootLottie/offline.json';
+  static const String sale = '$rootLottie/sale.json';
+  static const String sale2 = '$rootLottie/sale2.json';
+  static const String cartLoading = '$rootLottie/cart.json';
+  static const String rating = '$rootLottie/rating.json';
+
+  static const String delivery = '$rootImage/delivery.png';
+  static const String deliveryTrack = '$rootImage/delivery-truck.png';
+  static const String drivethru = '$rootImage/drivethru.png';
 }

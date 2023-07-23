@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:online_shopping/core/constants/image_asset.dart';
 import 'package:online_shopping/linkapi.dart';
 
 class CartList extends StatelessWidget {

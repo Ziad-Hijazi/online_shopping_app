@@ -48,7 +48,7 @@ class VerifyCodeSignUp extends StatelessWidget {
                           height: 30,
                         ),
                         OtpTextField(
-                          fieldWidth: 60,
+                          fieldWidth: 55,
                           borderRadius: BorderRadius.circular(20),
                           numberOfFields: 5,
                           borderColor: const Color(0xFF512DA8),

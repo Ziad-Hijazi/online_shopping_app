@@ -1,5 +1,5 @@
 class CategoriesModel {
-  int? categoriesId;
+  String? categoriesId;
   String? categoriesName;
   String? categoriesNameAr;
   String? categoriesImage;

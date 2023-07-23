@@ -16,7 +16,7 @@ class CustomCardHome extends GetView<HomePageControllerImp> {
       child: Stack(
         children: [
           Container(
-            height: 150,
+            height: 160,
             width: double.infinity,
             alignment: Alignment.center,
             decoration: BoxDecoration(
@@ -24,11 +24,11 @@ class CustomCardHome extends GetView<HomePageControllerImp> {
                 borderRadius: BorderRadius.circular(15)),
             child: ListTile(
               title: Text(
-                title,
+                title.tr,
                 style: const TextStyle(fontSize: 20, color: Colors.white),
               ),
               subtitle: Text(
-                body,
+                body.tr,
                 style: const TextStyle(
                     fontSize: 35,
                     color: Colors.white,
@@ -44,8 +44,8 @@ class CustomCardHome extends GetView<HomePageControllerImp> {
               decoration: BoxDecoration(
                   color: AppColor.primaryColor2,
                   borderRadius: BorderRadius.circular(150)),
-              height: 160,
-              width: 160,
+              height: 150,
+              width: 150,
             ),
           ),
         ],

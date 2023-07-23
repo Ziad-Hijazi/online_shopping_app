@@ -51,9 +51,10 @@ class LoginControllerImp extends LoginController {
       statusRequest = handlingData(response);
       if (StatusRequest.success == statusRequest) {
         if (response['status'] == "success") {
-          if (response['data']['users_approve'] == 1) {
+          if (response['data']['users_approve'] == "1") {
             myServices.sharedPreferences
-                .setInt("id", response['data']['users_id']);
+                .setString("id", response['data']['users_id']);
+            String userId = myServices.sharedPreferences.getString("id")!;
             myServices.sharedPreferences
                 .setString("username", response['data']['users_name']);
             myServices.sharedPreferences
@@ -61,6 +62,9 @@ class LoginControllerImp extends LoginController {
             myServices.sharedPreferences
                 .setString("phone", response['data']['users_phone']);
             myServices.sharedPreferences.setString("step", "2");
+            FirebaseMessaging.instance.subscribeToTopic("users");
+            FirebaseMessaging.instance.subscribeToTopic("users${userId}");
+
             Get.offNamed(AppRoutes.homepage);
           } else {
             Get.offNamed(AppRoutes.verifyCodeSignUp,

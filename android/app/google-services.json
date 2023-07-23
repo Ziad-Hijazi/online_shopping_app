@@ -1,26 +1,36 @@
 {
   "project_info": {
-    "project_number": "519708472026",
-    "project_id": "smartshop-d3906",
-    "storage_bucket": "smartshop-d3906.appspot.com"
+    "project_number": "872518398575",
+    "project_id": "smartshop-8c466",
+    "storage_bucket": "smartshop-8c466.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:519708472026:android:3e56baafe099996e742be3",
+        "mobilesdk_app_id": "1:872518398575:android:2d9330c01018870f75139a",
         "android_client_info": {
           "package_name": "com.example.online_shopping"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "872518398575-6ubpp321edo1464474ono59vr3osvvv9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyBGEqXVV4zLJKwbAAIJ9LaMtUFLA7fG8sI"
+          "current_key": "AIzaSyCqPjYRPIFG-fMyuEodmi45KuRIxMzYpmI"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "872518398575-6ubpp321edo1464474ono59vr3osvvv9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

@@ -51,6 +51,10 @@ class MyTranslations extends Translations {
           "42": "ليس لديك حساب؟",
           "43": "هل لديك حساب؟",
           "44": "تهانينا",
+          "45": "مفاجأة الصيف",
+          "46": "استرداد نقدي 50%",
+          "47": "الفئات",
+          "48": "منتجات لك",
         },
         "en": {
           "1": "Choose Language",
@@ -101,6 +105,10 @@ class MyTranslations extends Translations {
           "42": "Don't have an account?",
           "43": "Have an account?",
           "44": "Congratulations",
+          "45": "A Summer Surprise",
+          "46": "Cashback 50%",
+          "47": "Categories",
+          "48": "Products for you",
         },
       };
 }

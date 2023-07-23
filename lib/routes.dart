@@ -5,6 +5,8 @@ import 'package:online_shopping/core/constants/routes.dart';
 import 'package:online_shopping/core/middleware/myMiddleware.dart';
 import 'package:online_shopping/test.dart';
 import 'package:online_shopping/test_view.dart';
+import 'package:online_shopping/view/screens/address/add.dart';
+import 'package:online_shopping/view/screens/address/view.dart';
 import 'package:online_shopping/view/screens/auth/forgetPassword/forget_password.dart';
 import 'package:online_shopping/view/screens/auth/login.dart';
 import 'package:online_shopping/view/screens/auth/forgetPassword/reset_password.dart';
@@ -14,6 +16,7 @@ import 'package:online_shopping/view/screens/auth/success_signup.dart';
 import 'package:online_shopping/view/screens/auth/forgetPassword/verify_code.dart';
 import 'package:online_shopping/view/screens/auth/verify_code_signup.dart';
 import 'package:online_shopping/view/screens/cart.dart';
+import 'package:online_shopping/view/screens/checkout.dart';
 import 'package:online_shopping/view/screens/myFavorite.dart';
 import 'package:online_shopping/view/screens/homePage.dart';
 import 'package:online_shopping/view/screens/homeScreen.dart';
@@ -21,11 +24,38 @@ import 'package:online_shopping/view/screens/itemsDetails.dart';
 import 'package:online_shopping/view/screens/itemsScreen.dart';
 import 'package:online_shopping/view/screens/languages.dart';
 import 'package:online_shopping/view/screens/on_boarding.dart';
+import 'package:online_shopping/view/screens/orders/archive.dart';
+import 'package:online_shopping/view/screens/orders/details.dart';
+import 'package:online_shopping/view/screens/orders/pending.dart';
 import 'package:online_shopping/view/screens/settings.dart';
 
 List<GetPage<dynamic>>? routes = [
   GetPage(
       name: "/", page: () => const Languages(), middlewares: [MyMiddleware()]),
+  GetPage(
+    name: AppRoutes.archiveOrders,
+    page: () => const ArchiveOrders(),
+  ),
+  GetPage(
+    name: AppRoutes.ordersDetails,
+    page: () => const OrdersDetails(),
+  ),
+  GetPage(
+    name: AppRoutes.pendingOrders,
+    page: () => const OrdersPending(),
+  ),
+  GetPage(
+    name: AppRoutes.checkout,
+    page: () => const Checkout(),
+  ),
+  GetPage(
+    name: AppRoutes.viewAddress,
+    page: () => const ViewAddress(),
+  ),
+  GetPage(
+    name: AppRoutes.addAddress,
+    page: () => const AddAddress(),
+  ),
   GetPage(
     name: AppRoutes.cart,
     page: () => const Cart(),

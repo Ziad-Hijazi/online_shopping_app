@@ -26,7 +26,7 @@ class ItemsDetailsControllerImp extends ItemsDetailsController {
   getCountItems(String itemsId) async {
     statusRequest = StatusRequest.loading;
     var response = await cartData.getCountCart(
-        myServices.sharedPreferences.getInt("id").toString(), itemsId);
+        myServices.sharedPreferences.getString("id")!, itemsId);
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == "success") {
@@ -43,7 +43,7 @@ class ItemsDetailsControllerImp extends ItemsDetailsController {
     statusRequest = StatusRequest.loading;
     update();
     var response = await cartData.addCart(
-        myServices.sharedPreferences.getInt("id").toString(), itemsId);
+        myServices.sharedPreferences.getString("id")!, itemsId);
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == "success") {
@@ -54,7 +54,7 @@ class ItemsDetailsControllerImp extends ItemsDetailsController {
                 color: Colors.green, fontSize: 22, fontWeight: FontWeight.bold),
           ),
           messageText: const Text(
-            "Added to favorites successfully",
+            "Added to Cart successfully",
             style: TextStyle(color: Colors.red, fontSize: 18),
           ),
         );
@@ -69,7 +69,7 @@ class ItemsDetailsControllerImp extends ItemsDetailsController {
     statusRequest = StatusRequest.loading;
     update();
     var response = await cartData.deleteCart(
-        myServices.sharedPreferences.getInt("id").toString(), itemsId);
+        myServices.sharedPreferences.getString("id")!, itemsId);
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == "success") {
@@ -80,7 +80,7 @@ class ItemsDetailsControllerImp extends ItemsDetailsController {
                 color: Colors.green, fontSize: 22, fontWeight: FontWeight.bold),
           ),
           messageText: const Text(
-            "Deleted from favorites successfully",
+            "Deleted from Cart successfully",
             style: TextStyle(color: Colors.red, fontSize: 18),
           ),
         );

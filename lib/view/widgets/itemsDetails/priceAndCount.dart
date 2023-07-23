@@ -22,7 +22,7 @@ class PriceAndCountItems extends StatelessWidget {
           children: [
             IconButton(onPressed: onPressedAdd, icon: const Icon(Icons.add)),
             Container(
-              padding: EdgeInsets.only(bottom: 2),
+              padding:const EdgeInsets.only(bottom: 2),
               alignment: Alignment.center,
               width: 50,
               decoration: BoxDecoration(

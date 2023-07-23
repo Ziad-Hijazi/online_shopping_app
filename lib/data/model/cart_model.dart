@@ -1,21 +1,21 @@
 class CartModel {
-  int? itemsprice;
-  int? countitems;
-  int? cartId;
-  int? cartUsersid;
-  int? cartItemsid;
-  int? itemsId;
+  String? itemsprice;
+  String? countitems;
+  String? cartId;
+  String? cartUsersid;
+  String? cartItemsid;
+  String? itemsId;
   String? itemsName;
   String? itemsNameAr;
   String? itemsDesc;
   String? itemsDescAr;
   String? itemsImage;
-  int? itemsCount;
-  int? itemsActive;
-  int? itemsPrice;
-  int? itemsDiscount;
+  String? itemsCount;
+  String? itemsActive;
+  String? itemsPrice;
+  String? itemsDiscount;
   String? itemsDate;
-  int? itemsCat;
+  String? itemsCat;
 
   CartModel(
       {this.itemsprice,

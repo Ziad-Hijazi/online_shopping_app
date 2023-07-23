@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:online_shopping/controller/homescreen_controller.dart';
@@ -20,11 +22,30 @@ class HomeScreen extends StatelessWidget {
           },
           child: const Icon(
             Icons.shopping_basket_outlined,
+            size: 30,
           ),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: const CustomBottomAppBarHome(),
-        body: controller.listPage.elementAt(controller.currentPage),
+        body: WillPopScope(
+          child: controller.listPage.elementAt(controller.currentPage),
+          onWillPop: () {
+            Get.defaultDialog(
+              title: "Warning",
+              titleStyle: const TextStyle(
+                  fontWeight: FontWeight.bold, color: AppColor.primaryColor),
+              middleText: "Do You Want To Exit From The App",
+              onConfirm: () {
+                exit(0);
+              },
+              buttonColor: AppColor.primaryColor,
+              confirmTextColor: Colors.white,
+              cancelTextColor: AppColor.primaryColor,
+              onCancel: () {},
+            );
+            return Future.value(false);
+          },
+        ),
       ),
     );
   }

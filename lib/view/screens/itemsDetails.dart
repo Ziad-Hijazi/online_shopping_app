@@ -65,7 +65,7 @@ class ItemsDetails extends StatelessWidget {
                     ),
                     PriceAndCountItems(
                       count: "${controller.countItems}",
-                      price: "${controller.itemsModel.itemsPrice}",
+                      price: "${controller.itemsModel.itemsPriceDiscount}",
                       onPressedAdd: () {
                         controller.add();
                       },

@@ -1,22 +1,23 @@
 class ItemsModel {
-  int? itemsId;
+  String? itemsId;
   String? itemsName;
   String? itemsNameAr;
   String? itemsDesc;
   String? itemsDescAr;
   String? itemsImage;
-  int? itemsCount;
-  int? itemsActive;
-  int? itemsPrice;
-  int? itemsDiscount;
+  String? itemsCount;
+  String? itemsActive;
+  String? itemsPrice;
+  String? itemsDiscount;
+  String? itemsPriceDiscount;
   String? itemsDate;
-  int? itemsCat;
-  int? categoriesId;
+  String? itemsCat;
+  String? categoriesId;
   String? categoriesName;
   String? categoriesNameAr;
   String? categoriesImage;
   String? categoriesDatetime;
-  int? favorite;
+  String? favorite;
 
   ItemsModel({
     this.itemsId,
@@ -29,6 +30,7 @@ class ItemsModel {
     this.itemsActive,
     this.itemsPrice,
     this.itemsDiscount,
+    this.itemsPriceDiscount,
     this.itemsDate,
     this.itemsCat,
     this.categoriesId,
@@ -50,6 +52,7 @@ class ItemsModel {
     itemsActive = json['items_active'];
     itemsPrice = json['items_price'];
     itemsDiscount = json['items_discount'];
+    itemsPriceDiscount = json['itemspricediscount'];
     itemsDate = json['items_date'];
     itemsCat = json['items_cat'];
     categoriesId = json['categories_id'];

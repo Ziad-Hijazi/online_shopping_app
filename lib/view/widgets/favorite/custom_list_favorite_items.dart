@@ -54,28 +54,6 @@ class CustomListFavoriteItems extends GetView<MyFavoriteController> {
               //   height: 10,
               // ),
 
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text(
-                    "Rating 3.5",
-                    style: TextStyle(fontSize: 15),
-                    textAlign: TextAlign.center,
-                  ),
-                  Container(
-                    alignment: Alignment.bottomCenter,
-                    height: 22,
-                    child: Row(children: [
-                      ...List.generate(
-                          5,
-                          (index) => const Icon(
-                                Icons.star,
-                                size: 15,
-                              ))
-                    ]),
-                  )
-                ],
-              ),
               // const Spacer(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -84,7 +62,7 @@ class CustomListFavoriteItems extends GetView<MyFavoriteController> {
                     "${itemsModel.itemsPrice}\$",
                     style: const TextStyle(
                       color: Colors.red,
-                      fontSize: 28,
+                      fontSize: 25,
                       fontWeight: FontWeight.bold,
                     ),
                   ),

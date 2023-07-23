@@ -14,5 +14,10 @@ class AppRoutes {
   static const String myFavorite = "/myFavorite";
   static const String settings = "/settings";
   static const String cart = "/cart";
-
+  static const String viewAddress = "/viewaddress";
+  static const String addAddress = "/addaddress";
+  static const String checkout = "/checkout";
+  static const String pendingOrders = "/pendingorders";
+  static const String ordersDetails = "/ordersdetails";
+  static const String archiveOrders = "/archiveorders";
 }
